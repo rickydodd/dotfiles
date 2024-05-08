@@ -38,6 +38,25 @@
           }
         ];
       };
+
+      atlas = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+
+        modules = [
+          ./system.nix
+          ./hosts/atlas
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = {inherit nixvim;};
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.atlas = import ./home/atlas;
+            };
+          }
+        ];
+      };
     };
   };
 }
