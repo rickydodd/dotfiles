@@ -127,6 +127,15 @@
   # };
 
   services = {
+    services.transmission = {
+      enable = true;
+
+      settings = {
+        download-dir = "~/Downloads";
+        rpc-port = 40435;
+      };
+    };
+
     jellyfin = {
       enable = true;
       dataDir = "/media/data/jellyfin/data";

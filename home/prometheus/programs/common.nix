@@ -10,6 +10,7 @@
     zip
     unzip
     p7zip
+    transmission
     qbittorrent
 
     # utils
